@@ -13,6 +13,7 @@ export const shorturl = async (req, res) => {
             redirect: original,
             visited: []
         });
+        console.log(sid);
         return res.status(200).json({ message: "Successfully created short URL", shortid: sid });
     } catch (error) {
         console.error(error);
