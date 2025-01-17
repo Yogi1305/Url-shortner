@@ -23,7 +23,8 @@ export const shorturl = async (req, res) => {
 
 export const search = async (req, res) => {
     try {
-        const { short } = req.body; 
+        const {short}  = req.params; 
+        console.log(short);
         if (!short) {
             return res.status(400).json({ message: "Short ID is required" });
         }
