@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {  toast } from 'react-toastify';
 
 const Hero = () => {
   const [text, setText] = useState(""); 
   const [error, setError] = useState(null); 
+
 
   const copyToClipboard = async (text) => {
     if (!text.trim()) {
@@ -27,7 +29,8 @@ const Hero = () => {
       }
 
        navigator.clipboard.writeText(shortid);
-      console.log("Copied to clipboard!");
+       toast.success("copy to clipboard")
+      // console.log("Copied to clipboard!");
       setError(null); 
     } catch (err) {
       console.error("Error during API call:", err.message);
@@ -55,6 +58,7 @@ const Hero = () => {
           {error}
         </p>
       )}
+      
     </div>
   );
 };
